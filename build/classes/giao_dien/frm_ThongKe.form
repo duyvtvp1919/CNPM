@@ -95,7 +95,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Danh s&#xe1;ch phi&#x1ebf;u nh&#x1ead;p">
+            <TitledBorder title="Danh s&#xe1;ch ho&#xe1; &#x111;&#x1a1;n">
               <Color PropertyName="color" blue="a5" green="f5" red="dd" type="rgb"/>
             </TitledBorder>
           </Border>

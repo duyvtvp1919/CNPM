@@ -79,8 +79,8 @@ public class frm_HoaDon extends javax.swing.JPanel {
         List<HoaDon> lst_HoaDon = dao.dao_HoaDon.getAllHD();
         DefaultTableModel tblModel = new DefaultTableModel();
         tblModel.addColumn("Mã Hoá Đơn");
-        tblModel.addColumn("Mã nhân viên");
-        tblModel.addColumn("Mã Khách Hàng");      
+        tblModel.addColumn("Nhân viên");
+        tblModel.addColumn("Khách Hàng");      
         tblModel.addColumn("Ngày Lập");   
         tblModel.addColumn("Tổng tiền"); 
         for (HoaDon pn : lst_HoaDon) {
@@ -393,10 +393,10 @@ public class frm_HoaDon extends javax.swing.JPanel {
         });
 
         jLabel7.setForeground(new java.awt.Color(221, 245, 165));
-        jLabel7.setText("Mã Nhân Viên");
+        jLabel7.setText("Nhân Viên");
 
         jLabel8.setForeground(new java.awt.Color(221, 245, 165));
-        jLabel8.setText("Mã Khách Hàng");
+        jLabel8.setText("Khách Hàng");
 
         jLabel9.setForeground(new java.awt.Color(221, 245, 165));
         jLabel9.setText("Mã Hoá Đơn");

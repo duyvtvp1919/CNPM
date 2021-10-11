@@ -75,7 +75,7 @@ public class frm_ThongKe extends javax.swing.JPanel {
         setBackground(new java.awt.Color(53, 47, 87));
 
         jPanel1.setBackground(new java.awt.Color(53, 47, 87));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phiếu nhập", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(221, 245, 165))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách hoá đơn", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(221, 245, 165))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(221, 245, 165));
 
         tbl_hoadon.setBackground(new java.awt.Color(243, 209, 156));
