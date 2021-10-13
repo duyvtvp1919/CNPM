@@ -74,7 +74,7 @@ public class dao_HoaDon {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         List<HoaDon> lstHoaDon = new ArrayList<>();
         Connection cnn = tien_ich.connect.getConnection();
-        String query = "select * from HoaDon where NgayLapHoaDon > '" + dateFormat.format(ngaydau) + "' and NgayLapHoaDon < '" + dateFormat.format(ngaycuoi) + "'";
+        String query = "select * from HoaDon where NgayLapHoaDon >= '" + dateFormat.format(ngaydau) + "' and NgayLapHoaDon <= '" + dateFormat.format(ngaycuoi) + "'";
         PreparedStatement stm = cnn.prepareStatement(query);
         ResultSet rs = stm.executeQuery();
         while(rs.next()){

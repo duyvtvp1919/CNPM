@@ -55,6 +55,30 @@ public class frm_HoaDon extends javax.swing.JPanel {
             tblModel.addRow(row);
         }
         tbl_chitiethoadon.setModel(tblModel);
+        //-----Tinh Tong Tien------
+        List<SanPham> lst_SanPham = dao.dao_SanPham.getAllSP();
+//                List<ChiTietHoaDon> lst_ChiTietHoaDon = dao.dao_ChiTietHoaDon.getAllCTPN();
+        List<SanPham> lst_SanPham1 = new ArrayList<>();
+        int tong = 0;
+        for (ChiTietHoaDon ct : lst_ChiTietHoaDon) {
+            for(SanPham sp : lst_SanPham) {
+                if (ct.getMasanpham() == sp.getMasanpham()) {
+                    SanPham sp1 = new SanPham();
+                    tong += ct.getSoluong()*Integer.parseInt(sp.getGiaban());
+                    //sp1 = sp;
+                    sp1.setMasanpham(sp.getMasanpham());
+                    sp1.setTensanpham(sp.getTensanpham());
+                    sp1.setMaloaisanpham(sp.getMaloaisanpham());
+                    sp1.setNoisanxuat(sp.getNoisanxuat());
+                    sp1.setGianhap(sp.getGianhap());
+                    sp1.setGiaban(sp.getGiaban());
+                    sp1.setTonkho(sp.getTonkho()-ct.getSoluong());
+                    //dao.dao_SanPham.updateSP(sp1);
+                    lst_SanPham1.add(sp1);
+                }
+            }
+        }
+        txt_tongtien.setText(String.valueOf(tong));
     }
     private void LoadData_ChiTietHoaDon_control() throws ParseException, ClassNotFoundException, SQLException{
         if (tbl_chitiethoadon.getSelectedRow() != -1) {
@@ -147,6 +171,8 @@ public class frm_HoaDon extends javax.swing.JPanel {
         txt_soluong = new javax.swing.JTextField();
         btn_themchitiet = new javax.swing.JButton();
         btn_suasanpham = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        txt_tongtien = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_hoadon1 = new org.jdesktop.swingx.JXTable();
@@ -269,6 +295,9 @@ public class frm_HoaDon extends javax.swing.JPanel {
             }
         });
 
+        jLabel12.setForeground(new java.awt.Color(221, 245, 165));
+        jLabel12.setText("Tổng Tiền");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -311,8 +340,13 @@ public class frm_HoaDon extends javax.swing.JPanel {
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_masanpham, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_soluong, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txt_soluong, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txt_masanpham, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(69, 69, 69)
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
@@ -326,7 +360,9 @@ public class frm_HoaDon extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_masanpham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_masanpham, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(txt_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -791,6 +827,7 @@ public class frm_HoaDon extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -816,6 +853,7 @@ public class frm_HoaDon extends javax.swing.JPanel {
     private javax.swing.JTextField txt_manhanvien1;
     private javax.swing.JTextField txt_masanpham;
     private javax.swing.JTextField txt_soluong;
+    private javax.swing.JTextField txt_tongtien;
     private javax.swing.JTextField txt_tongtien1;
     // End of variables declaration//GEN-END:variables
 }

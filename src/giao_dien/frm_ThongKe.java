@@ -71,6 +71,7 @@ public class frm_ThongKe extends javax.swing.JPanel {
         label = new javax.swing.JLabel();
         dtn_ngaycuoi = new org.jdesktop.swingx.JXDatePicker();
         btn_thongke = new javax.swing.JButton();
+        btn_xemchitiet = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(53, 47, 87));
 
@@ -121,6 +122,16 @@ public class frm_ThongKe extends javax.swing.JPanel {
             }
         });
 
+        btn_xemchitiet.setBackground(new java.awt.Color(184, 72, 99));
+        btn_xemchitiet.setForeground(new java.awt.Color(221, 245, 165));
+        btn_xemchitiet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chitiet.png"))); // NOI18N
+        btn_xemchitiet.setText("Xem Chi Tiết");
+        btn_xemchitiet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_xemchitietMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,7 +157,9 @@ public class frm_ThongKe extends javax.swing.JPanel {
                         .addGap(137, 137, 137)
                         .addComponent(jLabel3)
                         .addGap(45, 45, 45)
-                        .addComponent(txt_tongban, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_tongban, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btn_xemchitiet)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -156,10 +169,15 @@ public class frm_ThongKe extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txt_tongban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txt_tongban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_xemchitiet, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -171,7 +189,7 @@ public class frm_ThongKe extends javax.swing.JPanel {
                             .addComponent(dtn_ngaycuoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addComponent(btn_thongke, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,9 +249,19 @@ public class frm_ThongKe extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btn_thongkeMouseClicked
 
+    private void btn_xemchitietMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_xemchitietMouseClicked
+        int Row = tbl_hoadon.getSelectedRow();
+        int Column = 0;
+        String value = tbl_hoadon.getModel().getValueAt(Row, Column).toString();
+        HienThiTTHoaDon frm = new HienThiTTHoaDon(value);
+        frm.setLocationRelativeTo(null);
+        frm.setVisible(true);
+    }//GEN-LAST:event_btn_xemchitietMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_thongke;
+    private javax.swing.JButton btn_xemchitiet;
     private org.jdesktop.swingx.JXDatePicker dtn_ngaycuoi;
     private org.jdesktop.swingx.JXDatePicker dtn_ngaydau;
     private javax.swing.JLabel jLabel1;
